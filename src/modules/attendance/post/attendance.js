@@ -32,8 +32,6 @@ exports.clockAttendance = async ({
             }
         });
 
-        console.log(exist);
-
         if(exist) throw({
             status: 400,
             message: 'Attendance with this type already exist today!'

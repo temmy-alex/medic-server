@@ -1,5 +1,6 @@
 const { removeUser } = require("./delete/remove_user");
 const { getUserData } = require("./get/all_user");
+const { saveFirebaseToken } = require("./post/register_firebase_token");
 const { registerUser } = require("./post/register_user");
 const { updateInfo } = require("./put/information");
 
@@ -59,6 +60,25 @@ class AccountAdminController {
                 message: 'Success add user',
             })
         } catch (error) {
+            next({
+                error
+            })
+        }
+    }
+
+    static async addUserToken(req, res, next) {
+        try {
+            await saveFirebaseToken({
+                token: req.body.token,
+                authenticate: req.authenticate,
+            });
+                
+            res.status(200).json({
+                success: true,
+                message: 'Success save user firebase token',
+            })
+        } catch (error) {
+            console.log(error);
             next({
                 error
             })

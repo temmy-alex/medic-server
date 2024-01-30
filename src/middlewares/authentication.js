@@ -15,7 +15,8 @@ async function authUser(req, res, next) {
                     email: decoded.email
                 },
                 include: {
-                    role: true
+                    role: true,
+                    information: true,
                 }
             });
 
@@ -23,6 +24,7 @@ async function authUser(req, res, next) {
                 req.authenticate = {
                     email: user.email,
                     id: user.id,
+                    name: user.information.name,
                     role: user.role.name
                 }
                 next()
@@ -44,7 +46,7 @@ async function authAdmin(req, res, next) {
     try {
         let token = req.headers.authorization.split(' ');
 
-        if (token[0]?.toLowerCase() === 'bearer') {
+        if (token?.[0]?.toLowerCase() === 'bearer') {
             const decoded = verifyToken(token[1]);
 
             const user = await prisma.account.findUnique({
