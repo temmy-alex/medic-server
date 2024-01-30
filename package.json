@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Barbar-Developer/medic-server.git"
+    "url": "git+https://github.com/temmy-alex/medic-server.git"
   },
-  "author": "Genius Digital Project",
+  "author": "Temmy Alex",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Barbar-Developer/medic-server/issues"
+    "url": "https://github.com/temmy-alex/medic-server/issues"
   },
-  "homepage": "https://github.com/Barbar-Developer/medic-server#readme",
+  "homepage": "https://github.com/temmy-alex/medic-server#readme",
   "devDependencies": {
     "nodemon": "^3.0.3",
     "prisma": "^5.8.1"
